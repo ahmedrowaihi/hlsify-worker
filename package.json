@@ -1,6 +1,6 @@
 {
   "name": "@ahmedrowaihi/hlsify-worker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "bullmq worker for hlsify",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
