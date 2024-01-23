@@ -31,7 +31,7 @@ const generateHelpers = (queueID: string, queue: Queue) => ({
   resume: () => queue.resume(),
 });
 
-export function createWorkers({
+export async function createWorkers({
   queueID = "hlsify",
   count,
   opts = { connection: { host: "localhost", port: 6379 } },
@@ -39,6 +39,7 @@ export function createWorkers({
   hooks = {},
 }: createWorkersOptions) {
   const queue = new Queue(queueID);
+  await queue.waitUntilReady();
   const workers = [] as Worker<hlsifyJobData>[];
   async function withHooks(job: hlsifyJob) {
     if (hooks.prework) await safeInvoke(() => hooks.prework!(job));
