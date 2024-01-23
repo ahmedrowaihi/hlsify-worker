@@ -1,0 +1,8 @@
+# npmignore file
+src
+test
+node_module
+tsup.*
+turbo.*
+
+
